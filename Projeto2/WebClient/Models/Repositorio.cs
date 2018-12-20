@@ -10,7 +10,7 @@ namespace WebClient.Models
 {
     public class Repositorio
     {
-        public HttpClient Client { get; }
+        private readonly HttpClient _client;
 
         public Repositorio(HttpClient client)
         {
@@ -18,11 +18,13 @@ namespace WebClient.Models
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json")
             );
+
+            _client = client;
         }
 
         public async Task<IList<Cliente>> GetClientesAsync()
         {
-            HttpResponseMessage response = await Client.GetAsync("api/clientes");
+            HttpResponseMessage response = await _client.GetAsync("api/clientes");
             if(response.IsSuccessStatusCode){
                 var clientes = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<IList<Cliente>>(clientes);
@@ -32,12 +34,49 @@ namespace WebClient.Models
 
         public async Task<IList<Usuario>> GetUsuariosAsync()
         {
-            HttpResponseMessage response = await Client.GetAsync("api/usuarios");
+            HttpResponseMessage response = await _client.GetAsync("api/usuarios");
             if(response.IsSuccessStatusCode){
                 var usuarios = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<IList<Usuario>>(usuarios);
             }
             return new List<Usuario>();
+        }
+
+        public async Task<Usuario> GetUsuarioAsync(long Id){
+            HttpResponseMessage response = await _client.GetAsync($"api/usuarios/{Id}");
+            if(response.IsSuccessStatusCode){
+                var usuario = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Usuario>(usuario);
+            }
+            return new Usuario();
+        }
+
+        public async Task<bool> PostUsuarioAsync(Usuario usuario){
+            HttpResponseMessage response = await _client.PostAsJsonAsync("api/usuarios",usuario);
+            if(response.IsSuccessStatusCode){
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<bool> PostUsuarioAsync(long? id, Usuario usuario){
+            if(usuario.Id == id){
+                HttpResponseMessage response = await _client.PutAsJsonAsync($"api/usuarios/{id}", usuario);
+                if(response.IsSuccessStatusCode){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public async Task<bool> DeleteUsuarioAsync(long? id){
+            if(id != null){
+                HttpResponseMessage response = await _client.DeleteAsync($"api/usuarios/{id}");
+                if(response.IsSuccessStatusCode){
+                    return true;
+                }
+            }
+            return false;
         }
     }
     
