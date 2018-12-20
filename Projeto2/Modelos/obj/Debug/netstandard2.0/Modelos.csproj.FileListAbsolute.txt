@@ -1,9 +1,0 @@
-/home/alan/Documentos/dotnet/Lojinha Virtual/Projeto2/Modelos/bin/Debug/netstandard2.0/Modelos.deps.json
-/home/alan/Documentos/dotnet/Lojinha Virtual/Projeto2/Modelos/bin/Debug/netstandard2.0/Modelos.dll
-/home/alan/Documentos/dotnet/Lojinha Virtual/Projeto2/Modelos/bin/Debug/netstandard2.0/Modelos.pdb
-/home/alan/Documentos/dotnet/Lojinha Virtual/Projeto2/Modelos/obj/Debug/netstandard2.0/Modelos.csproj.CoreCompileInputs.cache
-/home/alan/Documentos/dotnet/Lojinha Virtual/Projeto2/Modelos/obj/Debug/netstandard2.0/Modelos.AssemblyInfoInputs.cache
-/home/alan/Documentos/dotnet/Lojinha Virtual/Projeto2/Modelos/obj/Debug/netstandard2.0/Modelos.AssemblyInfo.cs
-/home/alan/Documentos/dotnet/Lojinha Virtual/Projeto2/Modelos/obj/Debug/netstandard2.0/Modelos.dll
-/home/alan/Documentos/dotnet/Lojinha Virtual/Projeto2/Modelos/obj/Debug/netstandard2.0/Modelos.pdb
-/home/alan/Documentos/dotnet/Lojinha Virtual/Projeto2/Modelos/obj/Debug/netstandard2.0/Modelos.csprojAssemblyReference.cache
