@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebClient.Models;
 
 namespace WebClient
 {
@@ -31,6 +33,15 @@ namespace WebClient
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // services.AddHttpClient("lojinha", c => 
+            // {
+            //     c.BaseAddress = new Uri("http://localhost:5000");
+            //     c.DefaultRequestHeaders.Accept.Add(
+            //         new MediaTypeWithQualityHeaderValue("application/json")
+            //     );
+            // });
+
+            services.AddHttpClient<Repositorio>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
