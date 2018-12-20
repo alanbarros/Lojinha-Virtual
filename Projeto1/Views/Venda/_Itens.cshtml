@@ -1,0 +1,44 @@
+@model sistemaVendaWebApi.Models.Venda
+
+<div>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Itens[0].Produto.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Itens[0].Produto.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Itens[0].Quantidade)
+            </th>
+            </th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Itens) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+            <td>
+                <div class="btn-group" role="group">
+                @Html.ActionLink("Editar","Edit", new { Id = @item.Id}, new {@class = "btn btn-primary"})
+                @Html.ActionLink("Detalhes","Details", new { Id = @item.Id}, new {@class = "btn btn-warning"})
+                @Html.ActionLink("Excluir","Delete", new { Id = @item.Id}, new {@class = "btn btn-danger"})
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

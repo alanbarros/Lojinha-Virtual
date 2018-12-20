@@ -1,0 +1,17 @@
+@model sistemaVendaWebApi.Models.Venda
+
+@{
+    ViewData["Title"] = "Nova Venda";
+}
+
+<h4>Venda - @Html.DisplayFor(model => model.Id)</h4>
+<div class="dropdown col-md-4" id="cabradapeste">
+    <input type="text" id="termo_busca" name="termo_busca" class="form-control" placeholder="Buscar Cliente" data-toggle="dropdown">
+    <div class="dropdown-menu"></div>
+</div>
+<hr />
+<h4>Itens</h4>
+
+@Html.Partial("_Itens",Model)
+
+

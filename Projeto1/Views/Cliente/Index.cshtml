@@ -1,0 +1,62 @@
+@model IEnumerable<sistemaVendaWebApi.Models.Cliente>
+
+
+@{
+    ViewData["Title"] = "Lista Clientes";
+}
+
+<p>
+    @Html.ActionLink("Criar Novo","Create", null, null, new {@class = "btn btn-primary"})
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+            <td>
+                <div class="btn-group" role="group">
+                @Html.ActionLink("Editar","Edit", new { Id = @item.ID}, new {@class = "btn btn-primary"})
+                @Html.ActionLink("Detalhes","Details", new { Id = @item.ID}, new {@class = "btn btn-warning"})
+                @Html.ActionLink("Excluir","Delete", new { Id = @item.ID}, new {@class = "btn btn-danger"})
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

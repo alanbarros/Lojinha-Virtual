@@ -1,0 +1,65 @@
+@model IEnumerable<sistemaVendaWebApi.Models.Produto>
+
+@{
+    ViewData["Title"] = "Listar Produtos";
+}
+
+<p>
+    @Html.ActionLink("Criar Novo","Create", null, null, new {@class = "btn btn-primary"})
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Garantia)
+            </th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Garantia)
+            </td>
+            <td>
+                <div class="btn-group" role="group">
+                @Html.ActionLink("Editar","Edit", new { Id = @item.Id}, new {@class = "btn btn-primary"})
+                @Html.ActionLink("Detalhes","Details", new { Id = @item.Id}, new {@class = "btn btn-warning"})
+                @Html.ActionLink("Excluir","Delete", new { Id = @item.Id}, new {@class = "btn btn-danger"})
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

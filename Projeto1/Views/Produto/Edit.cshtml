@@ -1,0 +1,51 @@
+@model sistemaVendaWebApi.Models.Produto
+
+@{
+    ViewData["Title"] = "Editar Produto";
+}
+
+
+<h4>Produto</h4>
+<hr />
+<div class="row">        
+    <div class="col-md-4">
+        @using(Html.BeginForm("Edit","Produto",FormMethod.Post)){
+            <div class="form-group">                
+                @Html.Label("Descricao"):
+                @Html.TextBox("Descricao",null, new { @class = "form-control"})
+                @Html.ValidationMessage("Descricao", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Preco"):
+                @Html.TextBox("Preco",null, new { @class = "form-control"})
+                @Html.ValidationMessage("Preco", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Marca"):
+                @Html.TextBox("Marca",null, new { @class = "form-control"})
+                @Html.ValidationMessage("Marca", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Tipo"):
+                @Html.TextBox("Tipo",null, new { @class = "form-control"})
+                @Html.ValidationMessage("Tipo", "", new { @class = "text-danger" })
+            </div>
+            <div>                
+                @Html.Label("Ativo"):
+                @Html.CheckBox("Ativo", true)                
+                @Html.ValidationMessage("Ativo", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Garantia"):
+                @Html.TextBox("Garantia",null, new { @class = "form-control"})
+                @Html.ValidationMessage("Garantia", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <div class="mt-3">
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                    @Html.ActionLink("Voltar","Index",null,null,new {@class = "btn btn-secondary"})
+                </div>
+            </div>
+        }
+    </div>   
+</div>

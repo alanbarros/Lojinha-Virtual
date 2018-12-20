@@ -1,0 +1,4 @@
+dotnet tool install --global dotnet-aspnet-codegenerator --version 2.1.5
+
+dotnet aspnet-codegenerator controller -name ClienteController -m sistemaVendaWebApi.Models.Usuario -dc sistemaVendaWebApi.Models.ClienteContext -outDir Controllers
+

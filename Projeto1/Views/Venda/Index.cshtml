@@ -1,0 +1,38 @@
+@model IEnumerable<sistemaVendaWebApi.Models.Venda>
+
+
+<p>
+    @Html.ActionLink("Nova Venda","Create", null, null, new {@class = "btn btn-primary"})
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusVenda)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusVenda)
+            </td>
+            <td>
+                <div class="btn-group" role="group">
+                    @Html.ActionLink("Editar","Edit", new { Id = @item.Id}, new {@class = "btn btn-primary"})
+                    @Html.ActionLink("Detalhes","Details", new { Id = @item.Id}, new {@class = "btn btn-warning"})
+                    @Html.ActionLink("Excluir","Delete", new { Id = @item.Id}, new {@class = "btn btn-danger"})
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

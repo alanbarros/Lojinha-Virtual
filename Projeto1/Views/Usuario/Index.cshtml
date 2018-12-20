@@ -1,0 +1,48 @@
+@model IEnumerable<sistemaVendaWebApi.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Lista Usuários";
+}
+
+<p>
+    @Html.ActionLink("Criar Novo","Create", null, null, new {@class = "btn btn-primary"})
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Senha)
+            </th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Senha)
+            </td>
+            <td>
+                <div class="btn-group" role="group">
+                @Html.ActionLink("Editar","Edit", new { Id = @item.Id}, new {@class = "btn btn-primary"})
+                @Html.ActionLink("Detalhes","Details", new { Id = @item.Id}, new {@class = "btn btn-warning"})
+                @Html.ActionLink("Excluir","Delete", new { Id = @item.Id}, new {@class = "btn btn-danger"})
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

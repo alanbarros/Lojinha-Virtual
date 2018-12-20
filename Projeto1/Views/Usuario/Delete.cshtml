@@ -1,0 +1,38 @@
+@model sistemaVendaWebApi.Models.Usuario
+
+@{
+    ViewData["Title"] = "Excluir Usuário";
+}
+
+<h3>Confirmar a exclusão deste usuário?</h3>
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Senha)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Senha)
+        </dd>
+    </dl>
+    
+    @using(Html.BeginForm("Delete","Usuario",FormMethod.Post)){
+        
+        <input type="hidden" value="@Model.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        @Html.ActionLink("Voltar","Index",null,null,new {@class = "btn btn-secondary"})
+    }
+</div>
